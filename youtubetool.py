@@ -10,10 +10,11 @@ import requests
 load_dotenv()
 YOUTUBE_API_KEY = os.getenv("youtube_api_key")
 
+# channel_id_list = ['UCX6b17PVsYBQ0ip5gyeme-Q', 'UCEWpbFLzoYGPfuWUMFPSaoA']
+# channel_name_list = ['CrashCourse', 'The Organic Chemistry Tutor']
+channel_id_list = ['UCEWpbFLzoYGPfuWUMFPSaoA']
+channel_name_list = ['The Organic Chemistry Tutor']
 
-channel_id_list = ['UCX6b17PVsYBQ0ip5gyeme-Q', 'UCEWpbFLzoYGPfuWUMFPSaoA']
-channel_name_list = ['CrashCourse', 'The Organic Chemistry Tutor']
-KEYWORDS = ['Momentum Conservation Principle', 'system undergoing recoil', 'elastic collision']  
 
 
 def channelid(ans):
@@ -73,7 +74,7 @@ def search_videos(api_key, channel_ids, keywords):
     return videos
 
 
-def retrieve_videos():
+def retrieve_videos(KEYWORDS):
     """main fucntion of this module to be called. it will return a nested dictionary, ie {keyword:{video_title:url,..}, keyword...}"""
     video_library = {}
     for keyword in KEYWORDS:
@@ -82,10 +83,10 @@ def retrieve_videos():
     return video_library
 
 
-
 # {'Momentum Conservation Principle': {'The Law of Conservation: Crash Course Engineering #7': 'https://www.youtube.com/watch?v=VxCORJ8dN3Y',
 #                                       'Conservation of Momentum Physics Problems - Basic Introduction': 'https://www.youtube.com/watch?v=Fp7D5D8Bqjc'},
 #  'system undergoing recoil': {'Elastic Collisions In One Dimension Physics Problems - Conservation of Momentum &amp; Kinetic Energy': 'https://www.youtube.com/watch?v=CFbo_nBdBco'},
 #  'elastic collision': {'Collisions: Crash Course Physics #10': 'https://www.youtube.com/watch?v=Y-QOfc2XqOk',
 #                         'Elastic Collisions In One Dimension Physics Problems - Conservation of Momentum &amp; Kinetic Energy': 'https://www.youtube.com/watch?v=CFbo_nBdBco'}
 #  }
+
