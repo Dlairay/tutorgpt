@@ -14,7 +14,7 @@ YOUTUBE_API_KEY = os.getenv("youtube_api_key")
 # channel_name_list = ['CrashCourse', 'The Organic Chemistry Tutor']
 channel_id_list = ['UCEWpbFLzoYGPfuWUMFPSaoA']
 channel_name_list = ['The Organic Chemistry Tutor']
-
+KEYWORDS = ['Number and Algebra', 'Numbers and Operations', 'Ratio and Proportion','Set Language and Notation','Triangles, and Polygons', 'Congruence and Similarity', 'Properties of Circles, Theorem, and Trigonometry', 'Mensuration', 'Probability']
 
 
 def channelid(ans):
@@ -74,13 +74,14 @@ def search_videos(api_key, channel_ids, keywords):
     return videos
 
 
-def retrieve_videos(KEYWORDS):
+def retrieve_videos(keyword_list):
     """main fucntion of this module to be called. it will return a nested dictionary, ie {keyword:{video_title:url,..}, keyword...}"""
     video_library = {}
-    for keyword in KEYWORDS:
+    for keyword in keyword_list:
         found_videos = search_videos(YOUTUBE_API_KEY,channel_id_list , keyword)
         video_library[keyword] = {title:url for title, url in found_videos}
     return video_library
+
 
 
 # {'Momentum Conservation Principle': {'The Law of Conservation: Crash Course Engineering #7': 'https://www.youtube.com/watch?v=VxCORJ8dN3Y',

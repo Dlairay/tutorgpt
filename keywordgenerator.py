@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
-
+import ast
 
 load_dotenv()
 api_key= os.getenv("OPENAI_APIKEY")
@@ -16,7 +16,7 @@ client = OpenAI(api_key=api_key)
 # if list_a[0] == '':
 #     list_a.remove('')
 # list_a = [string[:-1] for string in list_a]
-# # print(list_a)
+# print(list_a)
 
 def generate_keyword_list(list_a):
     prompt = "here is a list of learning objectives{}, you will iterate through the list and simplify the sentence into its core idea, and provide key words that i can search for in youtube.If there are duplicates remove them. you will then stricly output a python list containing those key words do not add courtesy messages".format(list_a)
@@ -29,8 +29,12 @@ def generate_keyword_list(list_a):
     ]
     )
 
-    response_content = completion.choices[0].message.content
-    return response_content
+    chatgpt_output = completion.choices[0].message.content
+    # print("output is a:",type(chatgpt_output))
+    converted_list = ast.literal_eval(chatgpt_output)
+    print("Conversion successful, converted list is a:", type(converted_list))
+    return converted_list
+
    
 
 
