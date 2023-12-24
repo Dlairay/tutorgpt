@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyMate - Your AI Study Companion</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .background {
+            background: linear-gradient(to bottom right, #ff758c 0%, #ff7eb3 100%);
+            padding: 20px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            width: 80%;
+            margin: auto;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            height: 250px;
+        }
+        .card h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+        .card ul li {
+            background: #eee;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .card ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+        .card ul li a:hover {
+            color: #007bff;
+        }
+        .page-header {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <h1 class="page-header">StudyMate - syllabus resources</h1>
+        <div class="container">
+            {% for topic, videos in topic_list.items() %}
+            <div class="card">
+                <h3>{{ topic }}</h3>
+                <ul>
+                    {% for video_name, video_url in videos.items() %}
+                        <li><a href="{{ video_url }}">{{ video_name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

@@ -30,9 +30,7 @@ def generate_keyword_list(list_a):
     )
 
     chatgpt_output = completion.choices[0].message.content
-    # print("output is a:",type(chatgpt_output))
     converted_list = ast.literal_eval(chatgpt_output)
-    print("Conversion successful, converted list is a:", type(converted_list))
     return converted_list
 
    
