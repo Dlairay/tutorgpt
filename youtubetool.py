@@ -12,9 +12,8 @@ YOUTUBE_API_KEY = os.getenv("youtube_api_key")
 
 # channel_id_list = ['UCX6b17PVsYBQ0ip5gyeme-Q', 'UCEWpbFLzoYGPfuWUMFPSaoA']
 # channel_name_list = ['CrashCourse', 'The Organic Chemistry Tutor']
-channel_id_list = ['UCEWpbFLzoYGPfuWUMFPSaoA']
-channel_name_list = ['The Organic Chemistry Tutor']
-KEYWORDS = ['Number and Algebra', 'Numbers and Operations', 'Ratio and Proportion','Set Language and Notation','Triangles, and Polygons', 'Congruence and Similarity', 'Properties of Circles, Theorem, and Trigonometry', 'Mensuration', 'Probability']
+channel_id_list = ['UCX6b17PVsYBQ0ip5gyeme-Q', 'UCEWpbFLzoYGPfuWUMFPSaoA']
+channel_name_list = ['CrashCourse', 'The Organic Chemistry Tutor']
 
 
 def channelid(ans):
